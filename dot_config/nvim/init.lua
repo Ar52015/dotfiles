@@ -2,9 +2,18 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Nerd Font installed
-vim.g.nerd_font_installed = true
+-- setup and load lazy
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.uv.fs_stat(lazypath) then
+    vim.fn.system({
+        "git", "clone", "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
 
--- Adding line numbers to nvim
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- Load options
+require("options")
