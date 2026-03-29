@@ -15,27 +15,22 @@ return {
                 "jdtls",
                 "bashls",
             },
+            automatic_enable = true,
         })
 
-        local lspconfig = require("lspconfig")
-        local servers = { "basedpyright", "clangd", "vtsls", "jdtls", "bashls" }
-
-        for _, server in ipairs(servers) do
-            lspconfig[server].setup({})
-        end
-
-        lspconfig.lua_ls.setup({
+        -- Only lua_ls needs custom config, rest use defaults
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
                     runtime = { version = "LuaJIT" },
                     workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true),
+                        library = { vim.env.VIMRUNTIME },
                     },
                 },
             },
         })
 
-        -- Keymaps
+        -- Keymaps when LSP attaches
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(event)
                 local map = function(keys, func, desc)

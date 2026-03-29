@@ -1,3 +1,7 @@
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Tab functionality
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -22,7 +26,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Signcolumn
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Update time and timeout
 vim.o.updatetime = 400
@@ -33,7 +37,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 -- Highlighting subs
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 -- Show what line cursor is on
 vim.o.cursorline = true
@@ -44,3 +48,18 @@ vim.o.scrolloff = 10
 -- Confirmtion dialogue for unsaved file
 vim.o.confirm = true
 
+-- Show diagnostics
+vim.diagnostic.config({
+	virtual_text = false,
+	float = {
+		border = "rounded",
+		source = true,
+	},
+})
+
+-- Autoshow diagnostics
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		vim.diagnostic.open_float(nil, { focusable = false })
+	end,
+})
