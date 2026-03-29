@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chezmoi source-path:*)",
+      "Read(//home/aryan/bin/**)"
+    ]
+  }
+}

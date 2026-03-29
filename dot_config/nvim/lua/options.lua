@@ -25,7 +25,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
 
 -- Update time and timeout
-vim.o.updatetime = 250
+vim.o.updatetime = 400
 vim.o.timeoutlen = 400
 
 -- Splits
