@@ -1,5 +1,5 @@
 # project-specific .claude folders
-.claude/
+**/.claude
 
 # Lock files
 *.lock
