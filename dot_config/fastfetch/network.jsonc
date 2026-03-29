@@ -1,0 +1,89 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "builtin",
+        "padding": {
+            "top": 2,
+        }
+    },
+    "modules": [
+        "title",
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌───────────────────────User──────────────────────────────┐"
+        },
+        {
+            "type": "title",
+            "key": "󰀄  User",
+            "keyColor": "green"
+        },
+        {
+            "type": "users",
+            "key": "└ └󰁥 Sessions",
+            "keyColor": "green"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌─────────────────────Network─────────────────────────────┐"
+        },
+        {
+            "type": "wifi",
+            "key": "󰖩  Wifi",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "localIp",
+            "key": "│ ├󰩟 Local IP",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "publicIp",
+            "key": "│ ├󰩠 Public IP",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "dns",
+            "key": "│ ├󰇖 DNS",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "netIO",
+            "key": "└ └󰛳 Net IO",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[90m┌────────────────────Bluetooth────────────────────────────┐"
+        },
+        {
+            "type": "bluetoothRadio",
+            "key": "󰂯  Radio",
+            "keyColor": "blue"
+        },
+        {
+            "type": "bluetooth",
+            "key": "└ └󰂱 Devices",
+            "keyColor": "blue"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+        },
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        }
+    ]
+}

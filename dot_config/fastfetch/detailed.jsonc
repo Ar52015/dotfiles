@@ -7,6 +7,7 @@
         }
     },
     "modules": [
+        "title",
         "break",
         {
             "type": "custom",
@@ -18,23 +19,68 @@
             "keyColor": "green"
         },
         {
+            "type": "chassis",
+            "key": "│ ├󰇅 Chassis",
+            "keyColor": "green"
+        },
+        {
+            "type": "board",
+            "key": "│ ├󰘚 Board",
+            "keyColor": "green"
+        },
+        {
             "type": "cpu",
-            "key": "│ ├󰻠 ",
+            "key": "│ ├󰻠 CPU",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpuCache",
+            "key": "│ ├󰆼 Cache",
+            "keyColor": "green"
+        },
+        {
+            "type": "cpuUsage",
+            "key": "│ ├󰓅 Usage",
             "keyColor": "green"
         },
         {
             "type": "gpu",
-            "key": "│ ├󰍹 ",
+            "key": "│ ├󰍹 GPU",
             "keyColor": "green"
         },
         {
             "type": "memory",
-            "key": "│ ├󰑭 ",
+            "key": "│ ├󰑭 RAM",
+            "keyColor": "green"
+        },
+        {
+            "type": "swap",
+            "key": "│ ├󰁄 Swap",
             "keyColor": "green"
         },
         {
             "type": "disk",
-            "key": "└ └󰋊 ",
+            "key": "│ ├󰋊 Disk",
+            "keyColor": "green"
+        },
+        {
+            "type": "battery",
+            "key": "│ ├󰁹 Battery",
+            "keyColor": "green"
+        },
+        {
+            "type": "display",
+            "key": "│ ├󰍺 Display",
+            "keyColor": "green"
+        },
+        {
+            "type": "brightness",
+            "key": "│ ├󰃟 Brightness",
+            "keyColor": "green"
+        },
+        {
+            "type": "sound",
+            "key": "└ └󰕾 Sound",
             "keyColor": "green"
         },
         {
@@ -48,27 +94,42 @@
         },
         {
             "type": "os",
-            "key": "  OS",
+            "key": "  OS",
             "keyColor": "yellow"
         },
         {
             "type": "kernel",
-            "key": "│ ├󰌽 ",
+            "key": "│ ├󰌽 Kernel",
             "keyColor": "yellow"
         },
         {
             "type": "bios",
-            "key": "│ ├󰖡 ",
+            "key": "│ ├󰖡 BIOS",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "initSystem",
+            "key": "│ ├󰡃 Init",
             "keyColor": "yellow"
         },
         {
             "type": "packages",
-            "key": "│ ├󰏗 ",
+            "key": "│ ├󰏗 Packages",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "└ └󰞷 ",
+            "key": "│ ├󰞷 Shell",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "editor",
+            "key": "│ ├󰏫 Editor",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "locale",
+            "key": "└ └󰗊 Locale",
             "keyColor": "yellow"
         },
         {
@@ -86,13 +147,58 @@
             "keyColor": "blue"
         },
         {
+            "type": "wmTheme",
+            "key": "│ ├󰉦 WM Theme",
+            "keyColor": "blue"
+        },
+        {
+            "type": "theme",
+            "key": "│ ├󰔎 Theme",
+            "keyColor": "blue"
+        },
+        {
+            "type": "icons",
+            "key": "│ ├󰀻 Icons",
+            "keyColor": "blue"
+        },
+        {
+            "type": "font",
+            "key": "│ ├󰛖 Font",
+            "keyColor": "blue"
+        },
+        {
+            "type": "cursor",
+            "key": "│ ├󰳽 Cursor",
+            "keyColor": "blue"
+        },
+        {
+            "type": "wallpaper",
+            "key": "│ ├󰸉 Wallpaper",
+            "keyColor": "blue"
+        },
+        {
             "type": "lm",
-            "key": "│ ├󰍁 ",
+            "key": "│ ├󰍁 LM",
             "keyColor": "blue"
         },
         {
             "type": "terminal",
-            "key": "└ └󰆍 ",
+            "key": "│ ├󰆍 Terminal",
+            "keyColor": "blue"
+        },
+        {
+            "type": "terminalFont",
+            "key": "│ ├󰬈 Term Font",
+            "keyColor": "blue"
+        },
+        {
+            "type": "terminalSize",
+            "key": "│ ├󰕣 Term Size",
+            "keyColor": "blue"
+        },
+        {
+            "type": "terminalTheme",
+            "key": "└ └󰏘 Term Theme",
             "keyColor": "blue"
         },
         {
@@ -123,6 +229,11 @@
         {
             "type": "custom",
             "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
+        },
+        {
+            "type": "version",
+            "key": "  ›  Fastfetch  ",
+            "keyColor": "magenta"
         },
         {
             "type": "colors",
