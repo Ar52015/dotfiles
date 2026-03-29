@@ -3,3 +3,4 @@
 I store my dotfiles here, currently this stores:
 
 - Neovim
+- FastFetch
