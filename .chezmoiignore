@@ -3,3 +3,6 @@
 
 # Lock files
 *.lock
+
+# ignore lazy-lock.json
+lazy-lock.json
