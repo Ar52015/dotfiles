@@ -7,6 +7,10 @@ return {
 			show_hidden = true,
 		},
 		default_file_explorer = true,
+		sort = {
+			{ "type", "asc" },
+			{ "name", "asc" },
+		},
 	},
 	keys = {
 		{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
