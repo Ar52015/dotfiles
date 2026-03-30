@@ -1,0 +1,336 @@
+// Waybar Config
+
+[
+// Row-1
+    {
+        // Name, position, layer of bar; exclusive makes sure no windows render behind it
+        "name": "bar1",
+        "position": "top",
+        "layer": "top",
+        "exclusive": true,
+
+        // Height of bar and spacing b/w modules
+        "height": 34,
+        "spacing": 0,
+
+        // pixel margins around the bar
+        "margin-top": 0,
+        "margin-left": 4,
+        "margin-right": 4,
+        "margin-bottom": 0,
+
+        // reload on changes to the style.css file
+        "reload_style_on_change": true,
+
+        // MODULE PLACEMENT (top-layer):
+        // Left
+        "modules-left": ["mpris"],
+
+        // center
+        "modules-center": ["hyprland/workspaces"],
+
+        // right
+        "modules-right": [
+            "tray",
+            "temperature",
+            "cpu",
+            "memory",
+            "pulseaudio#output",
+            "pulseaudio#input",
+            "backlight",
+            "network",
+            "battery"
+        ],
+
+        // MODULE CONFIG (top-layer):
+
+        // mpris:
+        "mpris": {
+
+            // format
+            "format": "󰋎 {status_icon} {artist} - {title}",
+            "format-paused": "<i>{status_icon} {artist}</i>",
+
+            // max-length so it doesn't take up the screen
+            "max-length": 35,
+
+            // icons
+            "status-icons": {
+                "playing": "▶",
+                "paused": "⏸"
+            },
+
+            // hide-metadata
+            "tooltip": false
+
+        },
+
+        // workspaces (hardwired app icons per workspace)
+        "hyprland/workspaces": {
+
+            // format
+            "format": "{icon}",
+
+            // scratchpad-hidden
+            "show-special": false,
+
+            // I/O action
+            "on-click": "activate",
+            "on-scroll-up": "hyprctl dispatch workspace e+1",
+            "on-scroll-down": "hyprctl dispatch workspace e-1",
+
+            // persistance
+            "persistent-workspaces": {
+                "*": 10
+            },
+
+            // hardwired: 1=vim 2=firefox 3=kitty 4=spotify
+            // fill the rest as needed
+            "format-icons": {
+                "1": "",
+                "2": "󰈹",
+                "3": "󰆍",
+                "4": "󰓇",
+                "empty": "○",
+                "default": "●"
+            }
+
+        },
+
+        // tray
+        "tray": {
+
+            // icon-size & spacing
+            "icon-size": 16,
+            "spacing": 4
+
+        },
+
+        // temperature
+        "temperature": {
+
+            // critical threshold adds CSS class "critical"
+            "critical-threshold": 70,
+
+            // format
+            "format": "{temperatureC}°C ",
+            "format-critical": " {temperatureC}°C",
+            "tooltip": true
+
+        },
+
+        // cpu
+        "cpu": {
+
+            // poll interval
+            "interval": 2,
+
+            // format
+            "format": " {usage}%",
+            "tooltip": false
+
+        },
+
+        // memory
+        "memory": {
+
+            // poll interval
+            "interval": 2,
+
+            // format
+            "format": "󰍛 {percentage}%"
+
+        },
+
+        // audio output (speakers)
+        "pulseaudio#output": {
+
+            // format
+            "format": "{icon} {volume}%",
+            "format-muted": "󰝟",
+            "format-icons": {
+                "default": ["󰕿", "󰖀", "󰕾"]
+            },
+
+            // hover-metadata
+            "tooltip-format": "{desc}\n{volume}%",
+
+            // I/O action
+            "scroll-step": 2,
+            "on-click": "pavucontrol",
+            "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+        },
+
+        // audio input (mic)
+        "pulseaudio#input": {
+
+            // format
+            "format-source": "",
+            "format-source-muted": "",
+            "format": "{format_source}",
+
+            // hover-metadata
+            "tooltip-format": "{format_source} {source_volume}%",
+
+            // I/O action
+            "scroll-step": 1,
+            "max-volume": 100,
+            "on-click": "pavucontrol",
+            "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+            "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+            "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%"
+
+        },
+
+        // brightness and backlighting
+        "backlight": {
+
+            // format and hover-metadata
+            "format": "{icon}",
+            "format-icons": ["󰃞", "󰃟", "󰃠"],
+            "tooltip-format": "{percent}%"
+
+        },
+
+        // wifi and stuff
+        "network": {
+
+            // format and hover-metadata
+            "format-wifi": "{icon}",
+            "format-ethernet": "󰈀",
+            "format-disconnected": "󰤮",
+            "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+            "tooltip-format-wifi": "{essid} ({signalStrength}%)\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+            "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+            "tooltip-format-disconnected": "Disconnected",
+
+            // checking/poll interval
+            "interval": 3
+
+        },
+
+        // battery
+        "battery": {
+
+            // format and hover-metadata
+            "format": "{icon} {capacity}%",
+            "format-charging": "󱐋 {capacity}%",
+            "format-plugged": "󰚥 {capacity}%",
+            "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "tooltip-format": "{timeTo}",
+
+            // checking/poll interval
+            "interval": 5,
+
+            // states (handled by css)
+            "states": {
+                "warning": 15,
+                "critical": 5
+            }
+
+        }
+
+    },
+
+// Row-2
+    {
+        // Name, position, layer of bar; exclusive makes sure no windows render behind it
+        "name": "bar2",
+        "position": "top",
+        "layer": "top",
+        "exclusive": true,
+
+        // Height of bar and spacing b/w modules
+        "height": 30,
+        "spacing": 0,
+
+        // pixel margins around the bar
+        "margin-top": 0,
+        "margin-left": 4,
+        "margin-right": 4,
+        "margin-bottom": 0,
+
+        // reload on changes to the style.css file
+        "reload_style_on_change": true,
+
+        // MODULE PLACEMENT (bottom-layer):
+        // Left (roman numeral workspace switcher)
+        "modules-left": ["hyprland/workspaces"],
+
+        // center
+        "modules-center": ["hyprland/window"],
+
+        // right
+        "modules-right": ["clock"],
+
+        // MODULE CONFIG (bottom-layer):
+
+        // workspaces (roman numeral boxes)
+        "hyprland/workspaces": {
+
+            // format
+            "format": "{icon}",
+
+            // scratchpad-hidden
+            "show-special": false,
+
+            // I/O action
+            "on-click": "activate",
+            "on-scroll-up": "hyprctl dispatch workspace e+1",
+            "on-scroll-down": "hyprctl dispatch workspace e-1",
+
+            // persistance (always show 10)
+            "persistent-workspaces": {
+                "*": 10
+            },
+
+            // roman numeral labels
+            "format-icons": {
+                "1": "I",
+                "2": "II",
+                "3": "III",
+                "4": "IV",
+                "5": "V",
+                "6": "VI",
+                "7": "VII",
+                "8": "VIII",
+                "9": "IX",
+                "10": "X"
+            }
+
+        },
+
+        // window titles
+        "hyprland/window": {
+
+            // format
+            "format": "{title}",
+            "max-length": 50,
+            "rewrite": {
+                "(.+)": "|> $1 &lt;|"
+            }
+
+        },
+
+        // clock (AM/PM)
+        "clock": {
+
+            // format: 12-hour with AM/PM
+            "format": " {:%I:%M %p  %d/%m/%Y}",
+            "format-alt": " {:%I:%M:%S %p  %A, %d %B %Y}",
+
+            // hover-metadata
+            "tooltip-format": "<span>{calendar}</span>",
+
+            // calendar format
+            "calendar": {
+                "mode": "month",
+                "mode-mon-col": 3,
+                "on-click-right": "mode"
+            }
+
+        }
+
+    }
+]

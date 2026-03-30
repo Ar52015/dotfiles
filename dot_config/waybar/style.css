@@ -1,0 +1,252 @@
+@import "colors.css";
+
+/* global config */
+* {
+
+    border: none;                               /* remove all gtk borders */
+    border-radius: 0;                           /* no-corners */
+    font-family: 'jetbrainsmono nerd font propo';
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;                              /* override gtk min-height so that we can display as we want*/
+
+}
+
+/* bar backgrounds */
+window#waybar.bar1 {
+
+    background-color: @c0;
+    border: 2px solid @c0;
+    border-radius: 4px;
+
+}
+
+window#waybar.bar2 {
+
+    background-color: @c0;
+    border: 2px solid @c0;
+    border-radius: 4px;
+    /* same as above to assure unified theme */
+
+}
+
+/* bar1 workspaces — hardwired app icons (center, top row) */
+window#waybar.bar1 #workspaces {
+    margin: 3px 5px;
+}
+
+window#waybar.bar1 #workspaces button {
+
+    all: initial;
+    /* critical: resets every inherited gtk style property.
+     * without this, gtk's default button styles conflict with our current css
+     * use this is must due to this, but i don't really understand it tbh :/ */
+
+    font-family: 'jetbrainsmono nerd font propo';
+    /* re-set after all:initial wipes it, needed for nerd font icons */
+
+    color: @fg;
+    background: transparent;
+    padding: 0 7px;
+    margin: 3px;
+    font-size: 16px;        /* larger font for the circle thingies */
+    border-radius: 4px;
+
+}
+
+window#waybar.bar1 #workspaces button.empty {
+    opacity: 0.3;           /* dim to simulate empty */
+}
+
+window#waybar.bar1 #workspaces button.active {
+    color: @c12;
+}
+
+window#waybar.bar1 #workspaces button:hover {
+
+    background-color: @c12;
+    color: @bg;
+    opacity: 1;
+
+}
+
+/* bar2 workspaces — roman numeral bordered boxes (left, bottom row) */
+window#waybar.bar2 #workspaces {
+    margin: 3px 5px;
+}
+
+window#waybar.bar2 #workspaces button {
+
+    all: initial;
+
+    font-family: 'jetbrainsmono nerd font propo';
+
+    color: @fg;
+    background: transparent;
+    border: 1.5px solid @c0;       /* visible border = retro boxed look */
+    padding: 0 6px;
+    margin: 3px;
+    border-radius: 3px;
+    font-size: 12px;
+
+}
+
+window#waybar.bar2 #workspaces button.empty {
+    opacity: 0.35;
+}
+
+window#waybar.bar2 #workspaces button.active {
+
+    background-color: @c12;
+    color: @bg;
+    border-color: @c12;             /* border matches fill for solid look */
+
+}
+
+window#waybar.bar2 #workspaces button.empty.active {
+    opacity: 1;                     /* empty but focused = still fully visible */
+}
+
+window#waybar.bar2 #workspaces button:hover {
+
+    background-color: @c12;
+    color: @bg;
+    border-color: @c12;
+    opacity: 1;
+
+}
+
+/* window title */
+#window {
+
+    color: @fg;
+    padding: 0 14px;
+
+}
+
+window#waybar.bar2.empty #window {
+
+    /* account for empty string when no window opened,
+     * don't just display |> <|, could make this into a cat emoticon tho */
+    background: transparent;
+    padding: 0;
+
+}
+
+/* modules section — cyan inner, black text, thin borders, shadow */
+
+#mpris,
+#tray,
+#temperature,
+#cpu,
+#memory,
+#pulseaudio,
+#backlight,
+#network,
+#battery,
+#clock {
+
+    color: @bg;
+    background-color: @c12;
+    border: 1px solid @bg;
+    box-shadow: 1px 1px 2px alpha(@bg, 0.3);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin: 3px 2px;                    /* 4px total gap between module borders */
+
+}
+
+/* battery warning state (<=15%): two quick blinks every 5 seconds
+ *
+ * timeline (5s cycle):
+ *   0.00-0.15s : steady
+ *   0.20-0.35s : flash (blink 1)
+ *   0.40-0.55s : steady
+ *   0.60-0.75s : flash (blink 2)
+ *   0.80-5.00s : steady for the rest
+ *
+ * percentages: 1% of 5s = 50ms, so jumps between
+ * adjacent keyframes (3%->4%) happen in ~50ms = instant */
+
+@keyframes blink-warning {
+    0%   { color: @bg; }
+    3%   { color: @bg; }
+    4%   { color: @c4; }
+    7%   { color: @c4; }
+    8%   { color: @bg; }
+    11%  { color: @bg; }
+    12%  { color: @c4; }
+    15%  { color: @c4; }
+    16%  { color: @bg; }
+    100% { color: @bg; }
+}
+
+#battery.warning {
+    color: @bg;
+    background-color: @c4;
+    animation: blink-warning 5s infinite;
+}
+
+/* battery critical state (<=5%): hard blink every 0.5s
+ * overrides to black bg, white text, bright red blinks
+ *
+ * timeline (0.5s cycle):
+ *   0.00-0.24s : white text on black
+ *   0.25-0.49s : bright red text on black
+ *   then loops
+ *
+ * the 49%->50% jump spans ~2.5ms = hard cut, not a fade */
+
+@keyframes blink-critical {
+    0%   { color: #ffffff; }
+    49%  { color: #ffffff; }
+    50%  { color: #ff0000; }
+    100% { color: #ff0000; }
+}
+
+#battery.critical:not(.charging) {
+
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin: 3px 2px;
+    animation: blink-critical 0.5s linear infinite;
+
+}
+
+/* and now for their rightful hovers */
+
+#mpris:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#battery:hover,
+#clock:hover,
+#window:hover {
+
+    background-color: @c0;
+    color: @c12;
+    border-radius: 3px;
+
+}
+
+tooltip {
+
+    background: @bg;
+    border: 1.5px solid @c12;
+    border-radius: 6px;
+    padding: 6px;
+
+}
+
+tooltip label {
+
+    color: @fg;
+    font-weight: normal; /* no need for bold here */
+    font-size: 12px;
+
+}
