@@ -11,6 +11,22 @@ return {
 			{ "type", "asc" },
 			{ "name", "asc" },
 		},
+		keymaps = {
+			["<C-l>"] = false, -- Disable page refresh keymap
+			["<leader>e"] = { -- To make telescope on necessary directories
+				desc = "Change pwd to buffer and refresh",
+				callback = function()
+					local oil = require("oil")
+					local dir = oil.get_current_dir()
+					if not dir then
+						vim.notify("Oil: no working directory associated with current buffer", vim.log.levels.WARN)
+						return
+					end
+					vim.cmd("edit!")
+					vim.cmd("cd " .. vim.fn.fnameescape(dir))
+				end,
+			},
+		},
 	},
 	keys = {
 		{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },

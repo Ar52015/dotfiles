@@ -10,5 +10,15 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Focus right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Focus lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
 
--- Open terminal in a lower horizontal split
-vim.keymap.set("n", "<leader>t", "<cmd>split | term<cr>", { desc = "Open terminnal" })
+-- Open terminal in insert mode
+vim.keymap.set("n", "<leader>t", function()
+	vim.cmd.split()
+	vim.cmd.term()
+	vim.cmd.startinsert()
+end, { desc = "Open terminal (lower horizontal)" })
+
+vim.keymap.set("n", "<leader>T", function()
+	vim.cmd.vsplit()
+	vim.cmd.term()
+	vim.cmd.startinsert()
+end, { desc = "Open terminal (vertical right)" })
