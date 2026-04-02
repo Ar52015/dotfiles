@@ -22,3 +22,6 @@ vim.keymap.set("n", "<leader>T", function()
 	vim.cmd.term()
 	vim.cmd.startinsert()
 end, { desc = "Open terminal (vertical right)" })
+
+-- Close tab
+vim.keymap.set("n", "<leader>q", ":tabclose<CR>", { silent = true })
