@@ -1,0 +1,27 @@
+[config.wallpaper]
+command = "awww"
+arguments = ["img", "--transition-type", "center"]
+set = true
+
+[templates.hyprland]
+input_path = "/home/aryan/.config/matugen/templates/hyprland-colors.conf"
+output_path = "~/.config/hypr/colors.conf"
+post_hook = "hyprctl reload"
+
+[template.hyprlock]
+input_path = "/home/aryan/.config/matugen/templates/hyprlock-colors.conf"
+output_path = "~/.config/hypr/hyprlock-colors.conf"
+
+[templates.pywalfox]
+input_path = '/home/aryan/.config/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+[templates.waybar]
+input_path = "/home/aryan/.config/matugen/templates/waybar-colors.css"
+output_path = "~/.config/waybar/colors.css"
+post_hook = "pkill -SIGUSR2 waybar"
+
+[templates.wofi]
+input_path = "/home/aryan/.config/matugen/templates/wofi-colors.css"
+output_path = "~/.config/wofi/colors.css"
