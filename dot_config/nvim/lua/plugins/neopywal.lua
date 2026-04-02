@@ -12,34 +12,34 @@ return {
 		local C = require("neopywal").get_colors()
 
 		-- Strings get variable.member color (color2)
-		vim.api.nvim_set_hl(0, "String", { fg = C.color2 })
-		vim.api.nvim_set_hl(0, "@string", { fg = C.color2 })
+		-- vim.api.nvim_set_hl(0, "String", { fg = C.color2 })
+		-- vim.api.nvim_set_hl(0, "@string", { fg = C.color2 })
 
-		-- Swap variable and variable.member colors
-		vim.api.nvim_set_hl(0, "Variable", { fg = C.string, italic = true })
-		vim.api.nvim_set_hl(0, "@variable", { fg = C.string, italic = true })
-		vim.api.nvim_set_hl(0, "@variable.member", { fg = C.variable, italic = true })
+		-- -- Swap variable and variable.member colors
+		-- vim.api.nvim_set_hl(0, "Variable", { fg = C.color1, italic = true })
+		-- vim.api.nvim_set_hl(0, "@variable", { fg = C.color1, italic = true })
+		-- vim.api.nvim_set_hl(0, "@variable.member", { fg = C.color1, italic = true })
 
-		-- Functions get blended bright pink
-		local U = require("neopywal.utils.color")
-		local fn_color = U.lighten(C.color1, 70)
-		vim.api.nvim_set_hl(0, "Function", { fg = fn_color })
-		vim.api.nvim_set_hl(0, "@function", { fg = fn_color })
-		vim.api.nvim_set_hl(0, "@function.call", { fg = fn_color })
-		vim.api.nvim_set_hl(0, "@function.builtin", { fg = fn_color })
-		vim.api.nvim_set_hl(0, "@function.method.call", { fg = fn_color })
+		-- -- Functions get blended bright pink
+		-- local U = require("neopywal.utils.color")
+		-- local fn_color = U.lighten(C.color1, 70)
+		-- vim.api.nvim_set_hl(0, "Function", { fg = fn_color })
+		-- vim.api.nvim_set_hl(0, "@function", { fg = fn_color })
+		-- vim.api.nvim_set_hl(0, "@function.call", { fg = fn_color })
+		-- vim.api.nvim_set_hl(0, "@function.builtin", { fg = fn_color })
+		-- vim.api.nvim_set_hl(0, "@function.method.call", { fg = fn_color })
 
-		-- Make property use variable colors
-		vim.api.nvim_set_hl(0, "@property", { fg = C.string, italic = true })
+		-- -- Make property use variable colors
+		-- vim.api.nvim_set_hl(0, "@property", { fg = C.string, italic = true })
 
-		-- Blend keywords between boolean yellow and default keyword color
-		local kw_color = U.lighten(U.blend(C.variable, C.keyword, 0.8), 30)
-		vim.api.nvim_set_hl(0, "Keyword", { fg = kw_color })
-		vim.api.nvim_set_hl(0, "@keyword", { fg = kw_color })
-		vim.api.nvim_set_hl(0, "@keyword.return", { fg = kw_color })
-		vim.api.nvim_set_hl(0, "@keyword.function", { fg = kw_color })
-		vim.api.nvim_set_hl(0, "@keyword.conditional", { fg = kw_color })
-		vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = kw_color })
-		vim.api.nvim_set_hl(0, "@keyword.import", { fg = kw_color })
+		-- -- Blend keywords between boolean yellow and default keyword color
+		-- local kw_color = U.lighten(U.blend(C.variable, C.keyword, 0.8), 30)
+		-- vim.api.nvim_set_hl(0, "Keyword", { fg = kw_color })
+		-- vim.api.nvim_set_hl(0, "@keyword", { fg = kw_color })
+		-- vim.api.nvim_set_hl(0, "@keyword.return", { fg = kw_color })
+		-- vim.api.nvim_set_hl(0, "@keyword.function", { fg = kw_color })
+		-- vim.api.nvim_set_hl(0, "@keyword.conditional", { fg = kw_color })
+		-- vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = kw_color })
+		-- vim.api.nvim_set_hl(0, "@keyword.import", { fg = kw_color })
 	end,
 }
