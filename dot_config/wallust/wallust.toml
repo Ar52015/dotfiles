@@ -11,7 +11,7 @@
 
 # How the image is parse, in order to get the colors:
 # full - resized - wal - thumb -  fastresize - kmeans
-backend = "kmeans"
+backend = "fastresize"
 
 # What color space to use to produce and select the most prominent colors:
 # lab - labmixed - lch - lchmixed
@@ -23,9 +23,9 @@ color_space = "lab"
 # harddark - harddark16 - harddarkcomp - harddarkcomp16
 # softdark - softdark16 - softdarkcomp - softdarkcomp16
 # softlight - softlight16 - softlightcomp - softlightcomp16
-palette = "darkcomp16"
+palette = "darkcomp"
 
-threshold = 20
+threshold = 28
 
 # Ensures a "readable contrast" (OPTIONAL, disabled by default)
 # Should only be enabled when you notice an unreadable contrast frequently happening
@@ -35,7 +35,7 @@ check_contrast = true
 # Color saturation, between [1% and 100%] (OPTIONAL, disabled by default)
 # usually something higher than 50 increases the saturation and below
 # decreases it (on a scheme with strong and vivid colors)
-saturation = 35
+saturation = 80
 
 # Alpha value for templating, by default 100 (no other use whatsoever)
 #alpha = 100
@@ -43,12 +43,13 @@ saturation = 35
 [templates]
 kitty.template = "kitty.conf"
 kitty.target = "~/.config/kitty/wallust.conf"
-kitty.fuzz = 32
-kitty.lightness = 50
+kitty.fuzz = 15
+kitty.lightness = 100
 kitty.saturation = 80
 
 neopywal.template = "colors_neopywal.vim"
 neopywal.target = "~/.cache/wallust/colors_neopywal.vim"
+neopywal.saturation = 0
 
 waybar.template = "colors-waybar.css"
 waybar.target = "~/.config/waybar/colors.css"
