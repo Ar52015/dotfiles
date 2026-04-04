@@ -1,0 +1,11 @@
+max_image_height = 30
+watch_debounce_milliseconds = 100
+enable_mouse_capture = false
+
+[padding]
+type = "centered"
+value = 150
+
+[theme]
+hide_urls = true
+task_checked_mark = "☑ "
