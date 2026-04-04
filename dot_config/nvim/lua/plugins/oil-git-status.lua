@@ -5,7 +5,7 @@ return {
 		show_ignored = true,
 		symbols = {
 			index = {
-				["!"] = "", -- Ignored
+				["!"] = " ", -- Ignored
 				["?"] = "", -- Untracked
 				["A"] = "", -- Added
 				["C"] = "", -- Copied
@@ -17,7 +17,7 @@ return {
 				[" "] = " ", -- Unmodified
 			},
 			working_tree = {
-				["!"] = "", -- Ignored
+				["!"] = " ", -- Ignored
 				["?"] = "", -- Untracked
 				["A"] = "", -- Added
 				["C"] = "", -- Copied

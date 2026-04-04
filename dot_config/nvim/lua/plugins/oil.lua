@@ -13,6 +13,7 @@ return {
 		},
 		keymaps = {
 			["<C-l>"] = false, -- Disable page refresh keymap
+			["<C-h>"] = false, -- Disable split file preview
 			["<leader>e"] = { -- To make telescope on necessary directories
 				desc = "Change pwd to buffer and refresh",
 				callback = function()
@@ -26,6 +27,9 @@ return {
 					vim.cmd("cd " .. vim.fn.fnameescape(dir))
 				end,
 			},
+		},
+		win_options = {
+			signcolumn = "auto:2",
 		},
 	},
 	keys = {
