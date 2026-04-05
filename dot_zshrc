@@ -3,9 +3,12 @@ PROMPT='[%n@%m %~]%# '
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt extendedglob
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -20,7 +23,12 @@ if uwsm check may-start >/dev/null 2>&1; then
 fi
 
 alias ls="lsd"
+alias tree="lsd --tree"
+alias cat="bat"
 alias grep="grep --color=auto"
+
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # fastfetch configs
 alias ff="fastfetch"
@@ -42,3 +50,6 @@ export PATH="$HOME/.local/bin:$PATH"
 fastfetch
 
 . "$HOME/.local/bin/env"
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
