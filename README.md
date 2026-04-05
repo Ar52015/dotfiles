@@ -11,3 +11,4 @@ I store my dotfiles here, currently this stores:
 - Wallust
 - logind (systemd)
 - Claude skills & templates
+- .gitconfig
