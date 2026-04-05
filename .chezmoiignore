@@ -1,2 +1,2 @@
-# project-specific .claude folders
-**/.claude
+# project-specific .claude folders (not the top-level ~/.claude)
+*/**/.claude
