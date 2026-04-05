@@ -1,0 +1,44 @@
+[[ $- != *i* ]] && return
+PROMPT='[%n@%m %~]%# '
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt extendedglob
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/aryan/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+if uwsm check may-start >/dev/null 2>&1; then
+	exec uwsm start hyprland.desktop;
+fi
+
+alias ls="lsd"
+alias grep="grep --color=auto"
+
+# fastfetch configs
+alias ff="fastfetch"
+alias ffd="fastfetch --config ~/.config/fastfetch/detailed.jsonc"
+alias ffh="fastfetch --config ~/.config/fastfetch/hardware.jsonc"
+alias ffs="fastfetch --config ~/.config/fastfetch/software.jsonc"
+alias ffp="fastfetch --config ~/.config/fastfetch/processes.jsonc"
+alias ffn="fastfetch --config ~/.config/fastfetch/network.jsonc"
+alias ffm="fastfetch --config ~/.config/fastfetch/media.jsonc"
+
+wallust () {
+	command wallust "$@"
+	kitty @ --to="KITTY_LISTEN_ON" set-colors -a -c ~/.config/kitty/wallust.conf 2>/dev/null || true
+}
+
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+fastfetch
+
+. "$HOME/.local/bin/env"
