@@ -10,3 +10,4 @@ I store my dotfiles here, currently this stores:
 - FastFetch
 - Wallust
 - logind (systemd)
+- Claude skills & templates
