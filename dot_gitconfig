@@ -1,0 +1,14 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	name = Ar52015
+	email = aryan.arora2015@gmail.com
+[init]
+	defaultBranch = main
+[alias]
+	ca = commit --amend --no-verify
+	cn = "!f() { git commit -m \"$*\" --no-verify; }; f"
