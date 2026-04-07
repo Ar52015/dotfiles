@@ -24,7 +24,7 @@ Write with direct, authoritative technical confidence. Use bold for emphasis on 
 
    **Project type**: *"Is this a learning/validation project, or a product (software with releases, users, or iterations)?"* If the user's input already makes the type obvious (e.g., "validation task" = learning, "MVP for users" = product), skip the question and state your assumption.
 
-   **Experience tiers** (inspired by the [Dreyfus model of skill acquisition](https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition)): List every technology, protocol, and library identified in step 2, and ask the user to assign a tier to each:
+   **Experience tiers** (inspired by the [Dreyfus model of skill acquisition](https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition)): List **every** technology, protocol, library, tool, and framework identified in step 2 — no matter how minor. This includes implementation technologies (languages, libraries, protocols), tooling (build systems, linters, formatters, package managers), testing frameworks, CI/CD platforms, containerization tools, and anything else that appears in the schedule. If it gets a task or a resource link, it needs a tier. Ask the user to assign a tier to each:
 
    - **Tier 1: Fluent** — daily driver, think in it (e.g., a Python dev's relationship with Python syntax and core stdlib)
    - **Tier 2: Comfortable** — used it meaningfully, can navigate and build with it, might need to look things up (e.g., a dev who's spent a week optimizing Dockerfiles)
