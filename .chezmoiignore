@@ -1,2 +1,5 @@
 # project-specific .claude folders (not the top-level ~/.claude)
 */**/.claude
+
+# Docs
+README.md
