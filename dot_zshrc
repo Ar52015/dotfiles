@@ -22,6 +22,7 @@ plugins=(git git-auto-fetch colored-man-pages fzf zsh-autosuggestions zsh-syntax
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v
+ZLE_RPROMPT_INDENT=0
 bindkey '^f' autosuggest-accept
 
 alias ls="lsd"
