@@ -8,10 +8,6 @@ input_path = "/home/aryan/.config/matugen/templates/hyprland-colors.conf"
 output_path = "~/.config/hypr/colors.conf"
 post_hook = "hyprctl reload"
 
-[template.hyprlock]
-input_path = "/home/aryan/.config/matugen/templates/hyprlock-colors.conf"
-output_path = "~/.config/hypr/hyprlock-colors.conf"
-
 [templates.pywalfox]
 input_path = '/home/aryan/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'

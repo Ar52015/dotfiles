@@ -1,0 +1,5 @@
+[config]
+
+[templates.hyprlock]
+input_path = "/home/aryan/.config/matugen/templates/hyprlock-colors.conf"
+output_path = "~/.config/hypr/hyprlock-colors.conf"
