@@ -12,3 +12,5 @@ I store my dotfiles here, currently this stores:
 - logind (systemd)
 - Claude skills & templates
 - .gitconfig
+- .zshrc
+- p10k
