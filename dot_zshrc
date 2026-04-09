@@ -23,7 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 ZLE_RPROMPT_INDENT=0
-bindkey '^f' autosuggest-accept
+bindkey '^[ ' autosuggest-accept
 
 alias ls="lsd"
 alias tree="lsd --tree"
