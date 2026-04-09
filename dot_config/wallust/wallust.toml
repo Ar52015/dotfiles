@@ -53,3 +53,6 @@ neopywal.saturation = 0
 
 waybar.template = "colors-waybar.css"
 waybar.target = "~/.config/waybar/colors.css"
+
+wofi.template = "colors-wofi.css"
+wofi.target = "~/.config/wofi/colors.css"
