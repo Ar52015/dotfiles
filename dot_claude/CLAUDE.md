@@ -71,6 +71,14 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 - **Python**: Use `uv` for all environment and package management — not pip, venv, virtualenv, or conda. Projects use `pyproject.toml` + `uv.lock` (`uv init`, `uv add`, `uv sync`, `uv run`).
 
+## Large Edits
+
+When a task requires multiple edits or large content generation, don't attempt everything in one response. List the steps briefly, execute the first one immediately, then wait for me to say "continue" before the next. One edit per turn. Don't re-read files already in context.
+
+## WebFetch 403s
+
+When WebFetch returns 403, fall back to `curl -s -L -H "User-Agent: Mozilla/5.0" <url>` via Bash. Pipe through grep/sed to extract what you need (e.g. section headings, code blocks). Don't silently skip verification because a fetch failed.
+
 ## Prevent Hallucinations
 
 Use chain-of-thought process whenever you're thinking, explaining, or doing a task, and if the user asks somethings or tells you to do something that you either don't know, or you can't do, you're allowed to say "I don't know" or "I can't do that" depending on the context
