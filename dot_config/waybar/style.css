@@ -4,7 +4,7 @@
 * {
 
     border: none;                               /* remove all gtk borders */
-    border-radius: 0;                           /* no-corners */
+    border-radius: 0;                           /* no rounded corners anywhere */
     font-family: 'jetbrainsmono nerd font propo';
     font-size: 13px;
     font-weight: bold;
@@ -17,7 +17,6 @@ window#waybar.bar1 {
 
     background-color: @c0;
     border: 2px solid @c0;
-    border-radius: 4px;
 
 }
 
@@ -25,7 +24,6 @@ window#waybar.bar2 {
 
     background-color: @c0;
     border: 2px solid @c0;
-    border-radius: 4px;
     /* same as above to assure unified theme */
 
 }
@@ -50,7 +48,6 @@ window#waybar.bar1 #workspaces button {
     padding: 0 7px;
     margin: 3px;
     font-size: 16px;        /* larger font for the circle thingies */
-    border-radius: 4px;
 
 }
 
@@ -86,7 +83,6 @@ window#waybar.bar2 #workspaces button {
     border: 1.5px solid @c0;       /* visible border = retro boxed look */
     padding: 0 6px;
     margin: 3px;
-    border-radius: 3px;
     font-size: 12px;
 
 }
@@ -124,15 +120,6 @@ window#waybar.bar2 #workspaces button:hover {
 
 }
 
-window#waybar.bar2.empty #window {
-
-    /* account for empty string when no window opened,
-     * don't just display |> <|, could make this into a cat emoticon tho */
-    background: transparent;
-    padding: 0;
-
-}
-
 /* modules section — cyan inner, black text, thin borders, shadow */
 
 #mpris,
@@ -150,7 +137,6 @@ window#waybar.bar2.empty #window {
     background-color: @c12;
     border: 1px solid @bg;
     box-shadow: 1px 1px 2px alpha(@bg, 0.3);
-    border-radius: 3px;
     padding: 0 10px;
     margin: 3px 2px;                    /* 4px total gap between module borders */
 
@@ -208,7 +194,6 @@ window#waybar.bar2.empty #window {
 
     background-color: #000000;
     color: #ffffff;
-    border-radius: 3px;
     padding: 0 10px;
     margin: 3px 2px;
     animation: blink-critical 0.5s linear infinite;
@@ -230,7 +215,6 @@ window#waybar.bar2.empty #window {
 
     background-color: @c0;
     color: @c12;
-    border-radius: 3px;
 
 }
 
@@ -238,7 +222,6 @@ tooltip {
 
     background: @bg;
     border: 1.5px solid @c12;
-    border-radius: 6px;
     padding: 6px;
 
 }
