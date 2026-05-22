@@ -45,8 +45,9 @@ window#waybar.bar1 #workspaces button {
 
     color: @fg;
     background: transparent;
-    padding: 0 7px;
-    margin: 3px;
+    padding: 0;
+    margin: 5px;
+    min-width: 32px;        /* must exceed widest glyph at 16px or buttons grow individually and drift */
     font-size: 16px;        /* larger font for the circle thingies */
 
 }
@@ -80,9 +81,12 @@ window#waybar.bar2 #workspaces button {
 
     color: @fg;
     background: transparent;
-    border: 1.5px solid @c0;       /* visible border = retro boxed look */
-    padding: 0 6px;
-    margin: 3px;
+    /* border removed — was 1.5px solid @c0 (bar bg) so invisible anyway,
+     * and active/hover use bg fill not the border. removing it also makes
+     * outer width match bar1 for column alignment with the top app icons. */
+    padding: 0;
+    margin: 5px;
+    min-width: 32px;
     font-size: 12px;
 
 }
@@ -95,7 +99,6 @@ window#waybar.bar2 #workspaces button.active {
 
     background-color: @c12;
     color: @bg;
-    border-color: @c12;             /* border matches fill for solid look */
 
 }
 
@@ -107,7 +110,6 @@ window#waybar.bar2 #workspaces button:hover {
 
     background-color: @c12;
     color: @bg;
-    border-color: @c12;
     opacity: 1;
 
 }
