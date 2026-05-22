@@ -1,6 +1,5 @@
 [config.wallpaper]
-command = "awww"
-arguments = ["img", "--transition-type", "center"]
+command = "awww img --transition-type center {{ image }}"
 set = true
 
 [templates.hyprland]
@@ -13,8 +12,7 @@ input_path = '/home/aryan/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
 post_hook = 'pywalfox update'
 
-[templates.waybar]
-input_path = "/home/aryan/.config/matugen/templates/waybar-colors.css"
-output_path = "~/.config/waybar/colors.css"
-post_hook = "pkill -SIGUSR2 waybar"
+[templates.gtk3]
+input_path = "/home/aryan/.config/matugen/templates/gtk3-colors.css"
+output_path = "~/.config/gtk-3.0/gtk.css"
 
