@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+setopt nounset
+
+chezmoi add "$1"
+cd ~/.local/share/chezmoi
+git add -A && git commit -m "$2" && git push

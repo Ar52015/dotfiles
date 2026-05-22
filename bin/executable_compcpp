@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FILE="$1"
+shift
+g++ "$FILE" "$@" -o /tmp/out && /tmp/out
+rm -f /tmp/out

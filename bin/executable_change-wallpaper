@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+wall="$1"
+[[ -f "$wall" ]] || { print -u2 "usage: change-wallpaper <image>"; exit 1; }
+if [[ -t 0 ]]; then
+  matugen image "$wall"
+else
+  matugen image --prefer saturation "$wall"
+fi
+wall_name="${wall:t:r}"
+wallust_config="$HOME/.config/wallust/configs/${wall_name}.toml"
+if [[ -f "$wallust_config" ]]; then
+  wallust -C "$wallust_config" run "$wall"
+else
+  print -u2 "change-wallpaper: no wallust override at $wallust_config"
+  if [[ -t 0 ]]; then
+    read "reply?  Generate one from the default? [Y/n] "
+  fi
+  if [[ -t 0 && ( -z "$reply" || "$reply" =~ ^[Yy] ) ]]; then
+    cp "$HOME/.config/wallust/wallust.toml" "$wallust_config"
+    print -u2 "  created $wallust_config"
+    wallust -C "$wallust_config" run "$wall" || wallust -C "$wallust_config" run --dynamic-threshold "$wall"
+  else
+    wallust run "$wall" || wallust run --dynamic-threshold "$wall"
+  fi
+fi
+kitty @ set-colors -a -c ~/.config/kitty/wallust.conf || true
