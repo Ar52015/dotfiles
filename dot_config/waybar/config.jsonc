@@ -23,8 +23,8 @@
         "reload_style_on_change": true,
 
         // MODULE PLACEMENT (top-layer):
-        // Left
-        "modules-left": ["mpris"],
+        // Left (window title)
+        "modules-left": ["hyprland/window"],
 
         // center
         "modules-center": ["hyprland/workspaces"],
@@ -44,32 +44,24 @@
 
         // MODULE CONFIG (top-layer):
 
-        // mpris:
-        "mpris": {
+        // window titles (lives on bar1's left)
+        "hyprland/window": {
 
-            // format
-            "format": "󰋎 {status_icon} {artist} - {title}",
-            "format-paused": "<i>{status_icon} {artist}</i>",
+            // format: wrappers + printf-style 40-char cap baked in.
+            // (rewrite + max-length weren't firing reliably in waybar 0.15.)
+            "format": "|> {title:.40} &lt;|",
 
-            // max-length so it doesn't take up the screen
-            "max-length": 35,
-
-            // icons
-            "status-icons": {
-                "playing": "▶",
-                "paused": "⏸"
-            },
-
-            // hide-metadata
-            "tooltip": false
+            // keep the |> <| (ligatures: ▷ ◁) visible even with no windows focused.
+            // could make this into a cat emoticon tho
+            "format-empty": "|>  &lt;|"
 
         },
 
-        // workspaces (hardwired app icons per workspace)
+        // workspaces (live app icons from window classes)
         "hyprland/workspaces": {
 
-            // format
-            "format": "{icon}",
+            // format: empty workspaces show {icon}, occupied show {windows}
+            "format": "{icon}{windows}",
 
             // scratchpad-hidden
             "show-special": false,
@@ -84,15 +76,55 @@
                 "*": 10
             },
 
-            // hardwired: 1=vim 2=firefox 3=kitty 4=spotify
-            // fill the rest as needed
+            // workspace-level icons. only "empty" actually renders;
+            // occupied workspaces resolve {icon} to "" and just show {windows}
             "format-icons": {
-                "1": "",
-                "2": "󰈹",
-                "3": "󰆍",
-                "4": "󰓇",
                 "empty": "○",
-                "default": "●"
+                "default": ""
+            },
+
+            // separator between window icons inside a workspace
+            "format-window-separator": " ",
+
+            // fallback for any window class not matched below
+            "window-rewrite-default": "●",
+
+            // window-class / title regex → nerd font icon.
+            // title rules first so an editor in a terminal beats the terminal icon.
+            "window-rewrite": {
+                "title<.*[Nn]vim.*>": "",
+                "title<.*NVIM.*>": "",
+                "class<firefox>": "󰈹",
+                "class<librewolf>": "󰈹",
+                "class<[Cc]hromium.*>": "",
+                "class<[Gg]oogle-chrome>": "",
+                "class<kitty>": "󰆍",
+                "class<Alacritty>": "󰆍",
+                "class<foot>": "󰆍",
+                "class<wezterm>": "󰆍",
+                "class<[Ss]potify>": "󰓇",
+                "class<discord>": "󰙯",
+                "class<vesktop>": "󰙯",
+                "class<[Ss]lack>": "󰒱",
+                "class<.*[Tt]elegram.*>": "",
+                "class<.*thunderbird.*>": "",
+                "class<[Cc]ode>": "󰨞",
+                "class<code-url-handler>": "󰨞",
+                "class<obsidian>": "󰈚",
+                "class<org.gnome.Nautilus>": "󰉋",
+                "class<[Tt]hunar>": "󰉋",
+                "class<org.kde.dolphin>": "󰉋",
+                "class<zathura>": "",
+                "class<evince>": "",
+                "class<mpv>": "󰐊",
+                "class<vlc>": "󰕼",
+                "class<[Gg]imp.*>": "",
+                "class<[Bb]lender>": "󰂫",
+                "class<[Ss]team.*>": "󰓓",
+                "class<libreoffice.*>": "",
+                "class<[Ss]ignal>": "󰍦",
+                "class<zoom>": "",
+                "class<pavucontrol>": "󰕾"
             }
 
         },
@@ -255,11 +287,11 @@
         "reload_style_on_change": true,
 
         // MODULE PLACEMENT (bottom-layer):
-        // Left (roman numeral workspace switcher)
-        "modules-left": ["hyprland/workspaces"],
+        // Left (now playing)
+        "modules-left": ["mpris"],
 
-        // center
-        "modules-center": ["hyprland/window"],
+        // center (roman numeral workspace switcher)
+        "modules-center": ["hyprland/workspaces"],
 
         // right
         "modules-right": ["clock"],
@@ -301,15 +333,24 @@
 
         },
 
-        // window titles
-        "hyprland/window": {
+        // mpris (lives on bar2's left after the swap)
+        "mpris": {
 
             // format
-            "format": "{title}",
+            "format": "󰋎 {status_icon} {artist} - {title}",
+            "format-paused": "<i>󰋎 {status_icon} {artist} - {title}</i>",
+
+            // max-length so it doesn't take up the screen
             "max-length": 50,
-            "rewrite": {
-                "(.+)": "|> $1 &lt;|"
-            }
+
+            // icons
+            "status-icons": {
+                "playing": "▶",
+                "paused": "⏸"
+            },
+
+            // hide-metadata
+            "tooltip": false
 
         },
 
