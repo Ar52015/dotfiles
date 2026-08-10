@@ -52,3 +52,5 @@ wallust () {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export DISABLE_TELEMETRY=1
+export DISABLE_ERROR_REPORTING=1
