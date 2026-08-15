@@ -1,0 +1,10 @@
+[urgency=critical]
+layer=overlay
+
+[app-name="Claude Code"]
+default-timeout=5000
+ignore-timeout=1
+
+[summary~="[Cc]laude"]
+default-timeout=5000
+ignore-timeout=1
