@@ -4,7 +4,7 @@ enable_mouse_capture = false
 
 [padding]
 type = "centered"
-value = 150
+width = 150
 
 [theme]
 hide_urls = true
