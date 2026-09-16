@@ -14,6 +14,7 @@ return {
                 "vtsls",
                 "jdtls",
                 "bashls",
+                "gopls",
             },
             automatic_enable = true,
         })

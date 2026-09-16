@@ -17,6 +17,7 @@ return {
             javascript = { "prettier" },
             typescript = { "prettier" },
             java = { "google-java-format" },
+            go = { "goimports", "gofumpt" },
             toml = { "taplo" },
             yaml = { "prettier" },
             json = { "prettier" },

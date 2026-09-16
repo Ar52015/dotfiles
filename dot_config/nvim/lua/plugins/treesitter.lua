@@ -19,6 +19,10 @@ return {
 			"json",
 			"markdown",
 			"markdown_inline",
+			"go",
+			"gomod",
+			"gosum",
+			"gowork",
 			"dockerfile",
 		})
 

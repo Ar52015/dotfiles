@@ -10,6 +10,8 @@ return {
             "clang-format",
             "taplo",
             "google-java-format",
+            "goimports",
+            "gofumpt",
         },
     },
 }

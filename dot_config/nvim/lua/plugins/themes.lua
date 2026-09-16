@@ -29,7 +29,9 @@ return {
 		dependencies = { "rktjmp/lush.nvim" },
 		lazy = false,
 	},
-	{ "nyoom-engineering/oxocarbon.nvim", lazy = false },
+	-- build = false: skip the bundled rockspec (needs fennel via luarocks);
+	-- the repo already ships compiled lua.
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, build = false },
 
 	-- Popular themes
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
