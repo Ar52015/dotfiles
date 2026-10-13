@@ -22,6 +22,11 @@ return {
             yaml = { "prettier" },
             json = { "prettier" },
             markdown = { "prettier" },
+            qml = { "qmlformat" },
+        },
+        formatters = {
+            -- qt6-declarative installs qmlformat outside PATH
+            qmlformat = { command = "/usr/lib/qt6/bin/qmlformat" },
         },
         format_on_save = {
             timeout_ms = 500,

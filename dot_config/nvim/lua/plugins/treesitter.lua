@@ -24,6 +24,7 @@ return {
 			"gosum",
 			"gowork",
 			"dockerfile",
+			"qmljs",
 		})
 
 		-- Enable treesitter highlighting for all installed parsers
