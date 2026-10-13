@@ -71,14 +71,54 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 - **Python**: Use `uv` for all environment and package management — not pip, venv, virtualenv, or conda. Projects use `pyproject.toml` + `uv.lock` (`uv init`, `uv add`, `uv sync`, `uv run`).
 
-## Large Edits
-
-When a task requires multiple edits or large content generation, don't attempt everything in one response. List the steps briefly, execute the first one immediately, then wait for me to say "continue" before the next. One edit per turn. Don't re-read files already in context.
-
 ## WebFetch 403s
 
 When WebFetch returns 403, fall back to `curl -s -L -H "User-Agent: Mozilla/5.0" <url>` via Bash. Pipe through grep/sed to extract what you need (e.g. section headings, code blocks). Don't silently skip verification because a fetch failed.
 
 ## Prevent Hallucinations
 
-Use chain-of-thought process whenever you're thinking, explaining, or doing a task, and if the user asks somethings or tells you to do something that you either don't know, or you can't do, you're allowed to say "I don't know" or "I can't do that" depending on the context
+**Ground claims in evidence. Say what you verified and what you didn't.**
+
+- Read code before describing or changing it. Don't infer behavior from names.
+- Before relying on anything recalled from memory (CLI flags, library APIs, config keys, package names, URLs), check it with `--help`, the installed source, or the docs. These change after the training cutoff.
+- Don't report something as working unless you saw it work (test output, command result). If you skipped a check, say so.
+- Mark claims that rest on inference rather than something you read or ran.
+- "I don't know" or "I couldn't verify X" beats a plausible guess.
+
+## Response style
+
+- These rules govern chat responses.
+- No preamble, no recap, no "Great question!" openers.
+
+### Structure
+
+- Open with the answer in one short sentence, then explain.
+- Put the surprising fact first and state it flatly.
+- Use lists where content is enumerable. Use prose only when the reasoning doesn't break into steps.
+- One claim per bullet. One idea per sentence.
+- Put each caveat or exception in its own bullet.
+- When the topic has a practical side, end with what to do about it.
+- Restate earlier points in one line. Never refer back to something earlier in
+  the session as shorthand.
+
+### Wording
+
+- Use short sentences and everyday words.
+- Use the exact technical term. Explain it in plain words the first time it appears.
+- Keep facts exact when simplifying. If the shorter sentence is less accurate, keep the longer one.
+- Phrase facts and advice positively. Prefer "Store bread at room temperature" over "Don't refrigerate bread".
+- Use "still" or "only" to show that a fact goes against what the reader expects.
+- Cut any sentence that repeats the one before it.
+
+### Banned rhetorical figures
+
+- "Not X, it's Y" contrasts (negative parallelism). State what is true directly.
+- Metaphor, personification and idioms. Describe the mechanism literally. Examples: "load-bearing", "happy accident", "tribal knowledge", "hits pause".
+- Balanced slogans (isocolon, epigram). Examples: "One cache, two worlds", "Same water, different shape".
+- A colon that holds back the answer for effect, as in "The fix has to be this:".
+- Dash asides, em-dash chains and nested parentheticals.
+
+### Formatting
+
+- Code identifiers in backticks. Bold is for headings only.
+- Cite primary sources over blog posts when both exist.
