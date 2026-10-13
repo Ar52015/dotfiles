@@ -8,56 +8,74 @@
 -- Example windowrules that are useful
 
 hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
-    name  = "suppress-maximize-events",
-    match = { class = ".*" },
+	-- Ignore maximize requests from all apps. You'll probably like this.
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
 
-    suppress_event = "maximize",
+	suppress_event = "maximize",
 })
 
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+	-- Fix some dragging issues with XWayland
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
 
-    no_focus = true,
+	no_focus = true,
 })
 
 -- Float pavucontrol
 hl.window_rule({
-    name  = "float-pavucontrol",
-    match = { class = "^(pavucontrol)$" },
+	name = "float-pavucontrol",
+	match = { class = "^(pavucontrol)$" },
 
-    float = true,
-    size  = { 800, 500 },
+	float = true,
+	size = { 800, 500 },
 })
 
 -- Float Calculator
 hl.window_rule({
-    name  = "float-calculator",
-    match = { class = "^(qalculate-gtk)$" },
+	name = "float-calculator",
+	match = { class = "^(qalculate-gtk)$" },
 
-    float = true,
+	float = true,
 })
 
 -- Float browser auth/popup windows
 hl.window_rule({
-    name  = "float-browser-popus",
-    match = { title = "^(Extension:.*)$" },
+	name = "float-browser-popus",
+	match = { title = "^(Extension:.*)$" },
 
-    float = true,
+	float = true,
 })
 
 hl.window_rule({
-    name  = "float-browser-auth",
-    match = { title = "^(Sign in|Log in|Login|Bitwarden|Authorization|Authenticate)" },
+	name = "float-browser-auth",
+	match = { title = "^(Sign in|Log in|Login|Bitwarden|Authorization|Authenticate)" },
 
-    float = true,
+	float = true,
+})
+
+-- Float QuickLog in the bottom-right corner
+hl.window_rule({
+	name = "float-quicklog",
+	match = { title = "^(Quicklog)$" },
+
+	float = true,
+	-- 22 = a 20 px gap to the screen edge + border_size (2)
+	move = { "monitor_w - window_w - 22", "monitor_h - window_h - 22" },
+})
+
+hl.window_rule({
+	name = "center-quicklog-folder-dialog",
+	match = { title = "^(Choose the vault folder)$" },
+
+	float = true,
+	center = true,
 })
